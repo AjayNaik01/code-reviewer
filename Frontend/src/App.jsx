@@ -1,4 +1,3 @@
-require("dotenv").config();
 import { useState, useEffect } from "react";
 import Editor from "react-simple-code-editor";
 import "prismjs";
@@ -18,7 +17,7 @@ function App() {
   }, []);
 
   async function reviewCode() {
-    const response = await axios.post(process.env.REACT_APP_API_URL, {
+    const response = await axios.post("http://localhost:3000/ai/get-review", {
       code,
     });
     setReview(response.data);
